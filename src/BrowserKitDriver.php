@@ -714,7 +714,7 @@ class BrowserKitDriver extends CoreDriver
      */
     private function canSubmitForm(\DOMElement $node)
     {
-        $type = $node->hasAttribute('type') ? $node->getAttribute('type') : null;
+        $type = $node->hasAttribute('type') ? strtolower($node->getAttribute('type')) : null;
 
         if ('input' === $node->nodeName && in_array($type, array('submit', 'image'), true)) {
             return true;
